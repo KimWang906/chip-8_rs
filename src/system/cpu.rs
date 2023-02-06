@@ -73,7 +73,7 @@ impl CPU {
         let arg2 = self.registers[y as usize];
 
         let (val, overflow) = arg1.overflowing_add(arg2);
-        self.registers[x as usize] = dbg!(val);
+        self.registers[x as usize] = val;
 
         // CHIP-8 안에 있는 마지막 레지스터는 Carry Flag에 오버플로우의 여부를 저장한다.
         if overflow {
@@ -106,7 +106,8 @@ impl CPU {
         self.registers[x as usize] = arg1.into_inner();
     }
 
+    // 위험한 명령, 조심히 사용할 것!
     pub fn jmp(&mut self, addr: u16) {
-        // self.pc = addr as usize;
+        self.pc = addr as usize;
     }
 }
