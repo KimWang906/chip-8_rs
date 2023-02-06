@@ -1,5 +1,7 @@
 #![allow(dead_code)]
 use system::cpu::CPU;
+
+pub mod console;
 pub mod system;
 
 fn setup() -> CPU {
@@ -15,7 +17,7 @@ fn setup() -> CPU {
 }
 
 #[test]
-fn add_inst() {
+fn add() {
     let mut cpu = setup();
 
     cpu.registers[0] = 1;
@@ -34,7 +36,7 @@ fn add_inst() {
 }
 
 #[test]
-fn sub_inst() {
+fn sub() {
     let mut cpu = setup();
 
     cpu.registers[0] = 5;
@@ -53,7 +55,7 @@ fn sub_inst() {
 }
 
 #[test]
-fn mov_inst() {
+fn mov() {
     let mut cpu = setup();
 
     cpu.registers[0] = 0;

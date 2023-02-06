@@ -4,3 +4,4 @@ pub const NO_OP: (u8, u8, u8, u8) = (0, 0, 0, 0);
 pub const ADD: u8 = 0x4;
 pub const SUB: u8 = 0x5;
 pub const MOV: u8 = 0x0;
+pub const JMP: u8 = 0x1;

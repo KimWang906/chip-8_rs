@@ -35,6 +35,7 @@ impl CPU {
             match (c, x, y, d) {
                 NO_OP => { return; },
                 RET   => self.ret(),
+                (JMP, _, _, _)      => self.jmp(nnn),
                 (CALL, _, _, _)     => self.call(nnn),
                 (0x8, _, _, ADD)    => self.add_xy(x, y),
                 (0x8, _, _, SUB)    => self.sub_xy(x, y),
@@ -103,5 +104,9 @@ impl CPU {
         *arg1.borrow_mut() = arg2;
 
         self.registers[x as usize] = arg1.into_inner();
+    }
+
+    pub fn jmp(&mut self, addr: u16) {
+        // self.pc = addr as usize;
     }
 }

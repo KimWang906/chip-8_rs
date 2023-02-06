@@ -4,6 +4,7 @@
 #![allow(unused_mut)]
 
 use cpu_emulator::system::cpu::CPU;
+use cpu_emulator::console::io::read_input;
 
 fn main() {
     let mut cpu = CPU {
@@ -14,5 +15,10 @@ fn main() {
         sp: 0,
     };
 
-    cpu.run();
+    loop {
+        let read = read_input();
+        println!("{read:?}");
+    }
+
+    // cpu.run();
 }
